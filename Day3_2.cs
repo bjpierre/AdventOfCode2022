@@ -9,6 +9,13 @@ void Main()
 	sum.Dump();
 }
 
+int findCommonItemWithLinq(string ruckA, string ruckB, string ruckC)
+{
+	//This method is one line and uses spans and refs making it execute in half the time
+	var common = ruckA.Where(s=>ruckB.Contains(s) && ruckC.Contains(s)).FirstOrDefault();
+	return itemToPrioritySubOne(common)+1;
+}
+
 int findCommonItem(string ruckA, string ruckB, string ruckC)
 {
 	var map = new int[52];
